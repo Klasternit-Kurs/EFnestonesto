@@ -8,11 +8,22 @@
         Title="MainWindow" Height="450" Width="800">
 	<DockPanel>
 		<StackPanel DockPanel.Dock="Top">
+			<StackPanel>
 			<TextBox Text="{Binding o.Ime, UpdateSourceTrigger=Explicit}"/>
 			<TextBox Text="{Binding o.Prezime, UpdateSourceTrigger=Explicit}"/>
 			<Button Content="Unos" Click="Unos"/>
+			</StackPanel>
+			<StackPanel>
+				<TextBox Text="{Binding a.Grad, UpdateSourceTrigger=Explicit}"/>
+				<TextBox Text="{Binding a.Postanski, UpdateSourceTrigger=Explicit}"/>
+				<TextBox Text="{Binding a.Ulica, UpdateSourceTrigger=Explicit}"/>
+				<TextBox Text="{Binding a.Broj, UpdateSourceTrigger=Explicit}"/>
+				<Button Content="Unos Adrese" Click="UnosAdr"/>
+			</StackPanel>
 		</StackPanel>
-		<TextBox Text="{Binding Pretraga, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Bottom"/>
-		<DataGrid Name="dg"/>
+		<StackPanel Orientation="Horizontal">
+			<DataGrid Name="dgOsobe" Width="300" IsReadOnly="True" ColumnWidth="*" SelectionChanged="PromenaOsobe"/>
+			<DataGrid Name="dgAdrese" Width="300" IsReadOnly="True" ColumnWidth="*"/>
+		</StackPanel>
 	</DockPanel>
 </Window>
